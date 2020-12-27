@@ -1,0 +1,8 @@
+.target {
+  width: 3rem;
+  height: 3rem;
+
+  color: black;
+  animation-name: zoomInOut;
+  animation-duration: 5s;
+}

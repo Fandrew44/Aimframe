@@ -17,30 +17,39 @@ const Menu = props => {
     }
 
     //Used to pass the Path of a specific Route 
-    //Oh is this Dynamic Routing
+    //Oh is this Dynamic Routing???? 
     const pushToRoute = route => {
         props.history.push(route);
         setOpenMenu(false);
     }
 
     return(
-        <div className="Menu">
-            <div className={"m-item m-logo"}
-                onClick={() => setOpenMenu(!openMenu)}>
-                Menu
+        <div>
+            <header>
+              <h1>Welcome to Aim Trainer!</h1>
+            </header>
+ 
+            <div className="Menu">
+                <div className={"m-item m-logo"}
+                    onClick={() => setOpenMenu(!openMenu)}>
+                    Menu
+                </div>
+                <div className={setClassNames(1)}
+                    onClick={() => pushToRoute("/play")}>
+                    Play
+                </div>
+                <div className={setClassNames(2)}
+                    onClick={() => pushToRoute("/analytics")}>
+                    Analytics
+                </div>
+                <div className={setClassNames(3)}
+                    onClick={() => pushToRoute("/settings")}>
+                    Settings
+                </div>
             </div>
-            <div className={setClassNames(1)}
-                onClick={() => pushToRoute("/play")}>
-                Play
-            </div>
-            <div className={setClassNames(2)}
-                onClick={() => pushToRoute("/analytics")}>
-                Analytics
-            </div>
-            <div className={setClassNames(3)}
-                onClick={() => pushToRoute("/settings")}>
-                Settings
-            </div>
+            <footer>
+                <h3>Made with luv by Andrew Han :)</h3>
+            </footer>
         </div>
     );
 }

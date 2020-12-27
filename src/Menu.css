@@ -48,3 +48,25 @@
   top: 5.4em;
   background-color: #00bbf9;
 }
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: rgb(73, 79, 82);
+  color: white;
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 4vh;
+  width: 100%;
+
+  position: absolute;
+  bottom: 0;
+  background: rgb(21, 77, 105);
+  color: white;
+}
