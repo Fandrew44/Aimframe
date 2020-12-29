@@ -117,7 +117,7 @@ const Play = props => {
         <div>
             <header>
                 <button className="start-button" onClick={ startGame }>Start</button>
-                <h2>Score: { score } </h2>
+                <h2>Score: { score } | Accuracy: { Math.round(score/44 * 100)}% </h2>
                 <BrowserRouter>
                     <Switch>
                         <button className="menu-back start-button" onClick={() => { pushToRoute('/') }}>
@@ -128,7 +128,7 @@ const Play = props => {
             </header>
             <div className="game-screen">
             {targets.map((target, i) => (
-                    <Target target={target} wait={i * 1000} score={ score } setScore={ setScore }/>
+                    <Target target={target} wait={i * 750} score={ score } setScore={ setScore }/>
                 ))}
             </div>
         </div>

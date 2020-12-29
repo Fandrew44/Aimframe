@@ -32,7 +32,7 @@
   /* background: repeating-radial-gradient(red, red 10%, white 10%, white 20%); */
   transition: border-color 200ms ease-in, background-color 200ms ease-in;
   animation-name: zoomInOut;
-  animation-duration: 5s;
+  animation-duration: 3s;
   animation-fill-mode: both;
 }
 
