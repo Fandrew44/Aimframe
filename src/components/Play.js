@@ -9,6 +9,7 @@ const Play = props => {
     //STATES
     const [inGame, setInGame] = useState(false);
     const [targets, setTargets] = useState([]);
+    const [score, setScore] = useState(0);
 
     //Dynamic Routing
     // - Functionality for changing routes (I THINK????)
@@ -56,19 +57,21 @@ const Play = props => {
         setInGame(true);
         let allTargets = [];
         let displayTargets = [];
+        let counter = 0;
         while (displayTargets.length < 44) {
             console.log(`# of targets is: ${targets.length}`);
             // console.log("Beep boop generating targets.");
             let overlapping = false;
             const xMin = 25;
-            const xMax = 850
+            const xMax = 1400
             const yMin = 25;
-            const yMax = 700;
+            const yMax = 600;
             const target = {
                 x: Math.floor(Math.random() * (xMax - xMin + 1)) + xMin,
                 y: Math.floor(Math.random() * (yMax - yMin + 1)) + yMin,
-                r: 1,
-                id: (Math.random() * 1000),
+                // clicked: false,
+                r: 16,
+                id: counter,
             };
 
             for (let i = 0; i < allTargets.length; i++) {
@@ -89,6 +92,7 @@ const Play = props => {
                 // console.log("Adding target to State");
                 // console.log(target.id);
                 displayTargets.push(target);
+                counter++;
             }
         }
 
@@ -99,11 +103,20 @@ const Play = props => {
         setInGame(false);
     }
 
+    // const promises = targets.map(target => {
+    //     new Promise(resolve => {
+    //         setTimeout(() => {
+    //             resolve();
+    //         }, 10000)
+    //     })
+    // });
+
 
     return (
         <div>
             <header>
                 <button className="start-button" onClick={ startGame }>Start</button>
+                <h2>Score: { score } </h2>
                 <BrowserRouter>
                     <Switch>
                         <button className="menu-back start-button" onClick={() => { pushToRoute('/') }}>
@@ -113,8 +126,8 @@ const Play = props => {
                 </BrowserRouter>
             </header>
             <div className="game-screen">
-                {targets.map(target => (
-                    <Target target={target} color="blue"/>
+            {targets.map((target, i) => (
+                    <Target target={target} wait={i * 1000} score={ score } setScore={ setScore }/>
                 ))}
             </div>
         </div>

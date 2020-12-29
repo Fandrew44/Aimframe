@@ -1,50 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Target.css';
-import style from 'styled-components';
 
 
-// const Target = ({ target }) => {
-//     const top = target.y;
-//     const left = target.x;
+const Target = ({ target, wait, score, setScore }) => {
+    const distFromTop = target.y;
+    const distFromLeft = target.x;
+    const radius = target.r;
 
-//     return(
-//         <div className="target" style={
-//             {top: {top},
-//              left: {left}
-//             }}></div>
-//     );
-// }
+    //STATES
+    const [isHit, setIsHit] = useState(false);
 
-//styled-components (in this case) allows for PROPS to directly dictate the styling (i.e. position) of the React Components
-const Target = style.div`
-    position: absolute;
-    bottom: ${props => props.target.y};
-    right: ${props => props.target.x};
-    width: 2rem;
-    height: 2rem;
-    background: black;
-    /* -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px; */
-  
-    color: black;
-    border-radius: 50%;
-    background-color: #c00;
-    background-clip: content-box;
-    padding: 0.25rem;
-    border: solid 0.5rem #c00;
-    /* background: repeating-radial-gradient(red, red 10%, white 10%, white 20%); */
-    transition: border-color 200ms ease-in, background-color 200ms ease-in;
-    animation-name: zoomInOut;
-    animation-duration: 5s;
-    animation-fill-mode: both;
-    
-    &:hover {
-        border: solid 0.5rem rgb(243, 136, 136);
+    //The targets are NOT quite entirely non-overlapping but it's close enough for now...
+    const styles = {
+        top: `${distFromTop}px`,
+        left: `${distFromLeft}px`,
+        width: `${1.25 * radius}px`,
+        height: `${1.25 * radius}px`,
+        padding: `${0.125 * radius}px`,
     }
 
+    const hitTarget = () => {
+        setIsHit(true);
+        setScore(score + 1);
+    }
 
-`;
+    return(
+        <div onClick= { hitTarget } className="target" style={styles}></div>
+    );
+}
+
+
+//IMPORTANT NOTE: I NEVER figured out how to add units (i.e. px) to Prop Values with react-styled-components :(
+// - But inline-styling the css seems to work as template literals seem to work thus allowing me to append "px" after the prop value
 
 
 export default Target;

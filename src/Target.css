@@ -14,10 +14,10 @@
 }
 
 .target {
-  position: relative;
+  position: absolute;
   /* display: flex; */
-  width: 2rem;
-  height: 2rem;
+  /* width: 2rem;
+  height: 2rem; */
   background: black;
   /* -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
