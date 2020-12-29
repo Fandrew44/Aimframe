@@ -1,8 +1,59 @@
+@keyframes zoomInOut {
+  0% {
+    transform: scale(0.3);
+  }
+  40% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0.3);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
 .target {
-  width: 3rem;
-  height: 3rem;
+  position: relative;
+  /* display: flex; */
+  width: 2rem;
+  height: 2rem;
+  background: black;
+  /* -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px; */
 
   color: black;
+  border-radius: 50%;
+  background-color: #c00;
+  background-clip: content-box;
+  padding: 0.25rem;
+  border: solid 0.5rem #c00;
+  /* background: repeating-radial-gradient(red, red 10%, white 10%, white 20%); */
+  transition: border-color 200ms ease-in, background-color 200ms ease-in;
   animation-name: zoomInOut;
   animation-duration: 5s;
+  animation-fill-mode: both;
+}
+
+.target:hover {
+  border: solid 0.5rem rgb(243, 136, 136);
+}
+
+.target:after {
+  content: "";
+  width: calc(100% + 1rem);
+  height: calc(100% + 1rem);
+  border-radius: 50%;
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

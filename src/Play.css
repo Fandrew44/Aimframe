@@ -3,7 +3,6 @@ button:focus {
 }
 
 header {
-  display: flex;
   justify-content: space-around;
   align-items: center;
   min-height: 8vh;
@@ -13,6 +12,7 @@ header {
 
 .game-screen {
   position: absolute;
+  background-color: black;
   width: 100%;
   height: 100%;
 }
