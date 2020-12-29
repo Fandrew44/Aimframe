@@ -10,6 +10,7 @@ const Play = props => {
     const [inGame, setInGame] = useState(false);
     const [targets, setTargets] = useState([]);
     const [score, setScore] = useState(0);
+    
 
     //Dynamic Routing
     // - Functionality for changing routes (I THINK????)
@@ -69,7 +70,7 @@ const Play = props => {
             const target = {
                 x: Math.floor(Math.random() * (xMax - xMin + 1)) + xMin,
                 y: Math.floor(Math.random() * (yMax - yMin + 1)) + yMin,
-                // clicked: false,
+                isHidden: true,
                 r: 16,
                 id: counter,
             };

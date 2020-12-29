@@ -9,20 +9,33 @@ const Target = ({ target, wait, score, setScore }) => {
 
     //STATES
     const [isHit, setIsHit] = useState(false);
+    const [isHidden, setIsHidden] = useState(true);
 
     //The targets are NOT quite entirely non-overlapping but it's close enough for now...
     const styles = {
+        visibility: isHidden ? "hidden" : "visible",
         top: `${distFromTop}px`,
         left: `${distFromLeft}px`,
         width: `${1.25 * radius}px`,
         height: `${1.25 * radius}px`,
         padding: `${0.125 * radius}px`,
+        "animation-delay": `${wait}ms`,
     }
 
     const hitTarget = () => {
-        setIsHit(true);
-        setScore(score + 1);
+        if (!isHit) {
+            setIsHit(true);
+            setScore(score + 1);
+        }
     }
+
+    const showTarget = () => {
+        setTimeout(() => {
+            setIsHidden(false);
+        }, wait);
+    }
+
+    showTarget();
 
     return(
         <div onClick= { hitTarget } className="target" style={styles}></div>
