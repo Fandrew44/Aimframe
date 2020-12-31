@@ -4,8 +4,10 @@ import '../Menu.css';
 
 const Menu = props => {
     //STATES
-    const [openMenu, setOpenMenu] = useState(false);
     // - determines whether menu drop down is displayed or not
+    const [openMenu, setOpenMenu] = useState(false);
+
+    const difficulty = props.location.difficulty;
 
     //Assigns classes to components when Menu button is clicked
     //Triggers dropdown animation
@@ -18,10 +20,37 @@ const Menu = props => {
 
     //Used to pass the Path of a specific Route 
     //Oh is this Dynamic Routing???? 
-    const pushToRoute = route => {
-        props.history.push(route);
+    // const pushToRoute = ({ route, difficulty, setDifficulty }) => {
+    //     props.history.push({
+    //         pathname: route,
+    //         state: { difficulty, setDifficulty },
+    //     });
+
+    const pushToPlay = () => {
+        props.history.push({
+            pathname: '/play',
+            difficulty: difficulty,
+        });
+
         setOpenMenu(false);
     }
+
+    const pushToAnalytics = () => {
+        props.history.push({
+            pathname: '/analytics',
+        });
+        
+        setOpenMenu(false);
+    }
+
+    const pushToDifficulty = () => {
+        props.history.push({
+            pathname: '/difficulty',
+        })
+
+        setOpenMenu(false);
+    }
+
 
     return(
         <div>
@@ -35,20 +64,20 @@ const Menu = props => {
                     Menu
                 </div>
                 <div className={setClassNames(1)}
-                    onClick={() => pushToRoute("/play")}>
+                    onClick={() => pushToPlay()}>
                     Play
                 </div>
                 <div className={setClassNames(2)}
-                    onClick={() => pushToRoute("/analytics")}>
+                    onClick={() => pushToAnalytics()}>
                     Analytics
                 </div>
                 <div className={setClassNames(3)}
-                    onClick={() => pushToRoute("/settings")}>
-                    Settings
+                    onClick={() => pushToDifficulty()}>
+                    Difficulty
                 </div>
             </div>
             <footer>
-                <h3>Made with luv by Andrew Han :)</h3>
+                <h3>Made with luv by Andrew Han c:</h3>
             </footer>
         </div>
     );

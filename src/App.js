@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Menu from './components/Menu';
 import './App.css';
 import Play from './components/Play';
+import Difficulty from './components/Difficulty';
+
 
 const App = () => {
   return (
@@ -12,7 +14,7 @@ const App = () => {
             <Switch>
               <Route exact path="/play" component={Play}/>
               <Route exact path="/test" component={null}/>
-              <Route exact path="/difficulty" component={null} />
+              <Route exact path="/difficulty" component={Difficulty} />
               <Route exact path="/" component={Menu} /> 
             </Switch>
         </div>

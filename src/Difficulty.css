@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400");
+/* body {
+  background: #2d3142;
+  font-family: "Raleway", sans-serif;
+} */
+
+/* Heading */
+
+/* h1 {
+  font-size: 1.5em;
+  text-align: center;
+  padding: 70px 0 0 0;
+  color: #ef8354;
+  font-weight: 300;
+  letter-spacing: 1px;
+} */
+
+/* 
+span {
+  border: 2px solid #4f5d75;
+  padding: 10px;
+}
+*/
+
+/* Layout Styling */
+
+/* #container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 50px 0 150px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
+
+/* Button Styles */
+
+.button {
+  font-family: "Ralewey", sans-serif;
+  display: inline-flex;
+  height: 40px;
+  width: 150px;
+  border: 2px solid #bfc0c0;
+  margin: 20px 20px 20px 20px;
+  color: #bfc0c0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 0.8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+a {
+  color: #bfc0c0;
+  text-decoration: none;
+  letter-spacing: 1px;
+  background-color: transparent;
+}
+
+#button-5 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#button-5 a {
+  position: relative;
+  transition: all 0.45s ease-Out;
+}
+
+#translate {
+  transform: rotate(50deg);
+  width: 100%;
+  height: 250%;
+  left: -200px;
+  top: -30px;
+  background: #bfc0c0;
+  position: absolute;
+  transition: all 0.3s ease-Out;
+}
+
+#button-5:hover #translate {
+  left: 0;
+}
+
+#button-5:hover a {
+  color: #2d3142;
+}
+/* 
+@media screen and (min-width: 1000px) {
+  h1 {
+    font-size: 2.2em;
+  }
+  #container {
+    width: 50%;
+  }
+} */
+
+/* ORIGINAL CSS */
+/* menu-back:focus {
+  outline-style: none;
+} */
+
+.difficulty-screen {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  position: absolute;
+  top: 625px;
+  left: 1300px;
+}
+.gamer {
+  visibility: hidden;
+}
+
+.hidden:hover .gamer {
+  visibility: visible;
+}
+
+header {
+  justify-content: space-around;
+  align-items: center;
+  min-height: 8vh;
+  background: rgb(73, 79, 82);
+  color: white;
+}
+
+.menu-back {
+  /* position: absolute; */
+  top: 50%;
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+
+  width: 5.5em;
+  background-color: #301a4b;
+  box-shadow: 1px 2px 2px #301a4b;
+
+  padding: 0.2em;
+
+  border-radius: 1em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1em;
+  color: #edffec;
+  cursor: pointer;
+
+  transition: 1s;
+}

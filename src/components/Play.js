@@ -10,6 +10,8 @@ const Play = props => {
     const [inGame, setInGame] = useState(false);
     const [targets, setTargets] = useState([]);
     const [score, setScore] = useState(0);
+
+    const difficulty = props.location.difficulty;
     
 
     //Dynamic Routing
@@ -27,31 +29,6 @@ const Play = props => {
     // - Is it the WHILE LOOP that's breaking it?
     //IMPORTANT NOTE: Manipulating States in React is ASYNCHRONOUS
     const startGame = () => {
-        // setInGame(true);
-        // //Works in this scenario
-        // setTargets([{
-        //     x: 1,
-        //     y: 2,
-        //     r: 3,
-        //     id: 4
-        // }]);
-        // const target = {
-        //     x: 100,
-        //     y: 101,
-        //     r: 103,
-        //     id: 144,
-        // }
-        // while (targets.length < 4) {
-        //     console.log("Adding new target");
-        //     setTargets([
-        //         ...targets,
-        //         target,
-        //     ])
-        // }
-        // setTargets([
-        //     ...targets,
-        //     target
-        // ])
         //NOTE: Since modifying states in React is ASYNC, I can just first create the Array with all the appropriate Targets and then
         //simply set the 'targets' state to that Array
         // - Rather than updating the 'targets' state with each individual target generated
@@ -103,16 +80,7 @@ const Play = props => {
     const endGame = () => {
         setInGame(false);
     }
-
-    // const promises = targets.map(target => {
-    //     new Promise(resolve => {
-    //         setTimeout(() => {
-    //             resolve();
-    //         }, 10000)
-    //     })
-    // });
-
-
+    
     return (
         <div>
             <header>
@@ -127,9 +95,18 @@ const Play = props => {
                 </BrowserRouter>
             </header>
             <div className="game-screen">
-            {targets.map((target, i) => (
-                    <Target target={target} wait={i * 750} score={ score } setScore={ setScore }/>
-                ))}
+            {targets.map((target, i) => {
+                switch (difficulty) {
+                    case 0: //Easy
+                     return <Target target={target} wait={i * 1250} score={ score } setScore={ setScore }/>
+                    case 1: //Medium
+                     return <Target target={target} wait={i * 900} score={ score } setScore={ setScore }/>                
+                    case 2: //Hard
+                     return <Target target={target} wait={i * 650} score={ score } setScore={ setScore }/>
+                    case 3: //Gamer
+                     return <Target target={target} wait={i * 300} score={ score } setScore={ setScore }/>
+                }
+            })}
             </div>
         </div>
     )
