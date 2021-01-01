@@ -4,6 +4,7 @@ import Menu from './components/Menu';
 import './App.css';
 import Play from './components/Play';
 import Difficulty from './components/Difficulty';
+import Analytics from './components/Analytics';
 
 
 const App = () => {
@@ -13,7 +14,7 @@ const App = () => {
         <div className="App">
             <Switch>
               <Route exact path="/play" component={Play}/>
-              <Route exact path="/test" component={null}/>
+              <Route exact path="/analytics" component={Analytics}/>
               <Route exact path="/difficulty" component={Difficulty} />
               <Route exact path="/" component={Menu} /> 
             </Switch>

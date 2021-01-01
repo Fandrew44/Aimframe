@@ -55,7 +55,7 @@ const Menu = props => {
     return(
         <div>
             <header>
-              <h1>Welcome to Aim Trainer!</h1>
+              <h1>Welcome to Aimframe!</h1>
             </header>
  
             <div className="Menu">
@@ -77,7 +77,7 @@ const Menu = props => {
                 </div>
             </div>
             <footer>
-                <h3>Made with luv by Andrew Han c:</h3>
+                <h3>Andrew Han © 2020</h3>
             </footer>
         </div>
     );

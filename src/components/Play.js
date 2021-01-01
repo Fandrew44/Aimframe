@@ -95,6 +95,7 @@ const Play = props => {
                 </BrowserRouter>
             </header>
             <div className="game-screen">
+            <h4><span>Refresh</span> to play again</h4>
             {targets.map((target, i) => {
                 switch (difficulty) {
                     case 0: //Easy
@@ -105,6 +106,8 @@ const Play = props => {
                      return <Target target={target} wait={i * 650} score={ score } setScore={ setScore }/>
                     case 3: //Gamer
                      return <Target target={target} wait={i * 300} score={ score } setScore={ setScore }/>
+                    default: //Medium is DEFAULT difficulty
+                     return <Target target={target} wait={i * 900} score={ score } setScore={ setScore }/>
                 }
             })}
             </div>
