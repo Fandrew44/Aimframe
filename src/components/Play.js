@@ -95,7 +95,7 @@ const Play = props => {
                 </BrowserRouter>
             </header>
             <div className="game-screen">
-            <h4><span>Refresh</span> to play again</h4>
+            <h4><span>Return to Menu</span> to play again</h4>
             {targets.map((target, i) => {
                 switch (difficulty) {
                     case 0: //Easy
